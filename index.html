@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registrado com sucesso:', registration);
+                })
+                .catch(error => {
+                    console.log('Erro ao registrar Service Worker:', error);
+                });
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <td colspan="4" id="texto">Calculadora | <span>Dev: Rodrigo Costa</span></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="resultado" id="resultado"></td>
+            </tr>
+            <tr>
+                <td onclick="clean()">CE</td>
+                <td onclick="deletar()">C</td>
+                <td onclick="insert('/')">/</td>
+                <td onclick="insert('*')">x</td>
+            </tr>
+            <tr>
+                <td onclick="insert('7')">7</td>
+                <td onclick="insert('8')">8</td>
+                <td onclick="insert('9')">9</td>
+                <td onclick="insert('-')">-</td>
+            </tr>
+            <tr>
+                <td onclick="insert('4')">4</td>
+                <td onclick="insert('5')">5</td>
+                <td onclick="insert('6')">6</td>
+                <td onclick="insert('+')">+</td>
+            </tr>
+            <tr>
+                <td onclick="insert('1')">1</td>
+                <td onclick="insert('2')">2</td>
+                <td onclick="insert('3')">3</td>
+                <td rowspan="2" onclick="calcular()">=</td>
+            </tr>
+            <tr>
+                <td onclick="insert('0')" colspan="2">0</td>
+                <td onclick="insert('.')">.</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="myApp.js"></script>
+    <script src="capacitor.js"></script>
+    <script>
+        document.addEventListener('deviceready', () => {
+            
+        });
+    </script>
+
+</body>
+
+</html>
